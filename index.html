@@ -1,317 +1,951 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yachay Forestal - Conectamos tecnología y naturaleza para un Ecuador verde. Servicios forestales y ambientales en Riobamba, Ecuador.">
-    <title>Yachay Forestal | Consultoría Forestal y Ambiental</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Morfología Floral Aplicada · ESPOCH</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde-oscuro: #1a4a2e;
+    --verde-medio: #2d6a4f;
+    --verde-claro: #52b788;
+    --verde-suave: #b7e4c7;
+    --verde-hoja: #40916c;
+    --blanco: #ffffff;
+    --blanco-hueso: #f8faf8;
+    --blanco-suave: #edf5f0;
+    --dorado: #d4a017;
+    --terracota: #c4622d;
+    --gris-texto: #2c3e2d;
+    --gris-suave: #6b7c6c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--blanco);
+    color: var(--gris-texto);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--verde-suave);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: .6rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--verde-oscuro);
+  }
+  .nav-logo-leaf { font-size: 1.4rem; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; font-size: .85rem; font-weight: 500;
+    color: var(--gris-suave); letter-spacing: .03em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--verde-medio); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--verde-oscuro) 0%, var(--verde-medio) 55%, var(--verde-hoja) 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .hero-mandala {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 600px; height: 600px; opacity: .06;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 780px; }
+  .hero-eyebrow {
+    display: inline-block; background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.25);
+    color: var(--verde-suave); font-size: .78rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    padding: .35rem 1.1rem; border-radius: 20px; margin-bottom: 1.8rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 900; line-height: 1.08;
+    color: var(--blanco); margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--verde-suave); }
+  .hero-sub {
+    font-size: 1.1rem; color: rgba(255,255,255,.75);
+    line-height: 1.7; max-width: 560px; margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+  .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blanco); color: var(--verde-oscuro);
+    padding: .85rem 2rem; border-radius: 6px;
+    font-weight: 600; font-size: .9rem;
+    text-decoration: none; transition: transform .2s, box-shadow .2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,.5); color: var(--blanco);
+    padding: .85rem 2rem; border-radius: 6px;
+    font-weight: 500; font-size: .9rem;
+    text-decoration: none; transition: background .2s;
+    cursor: pointer;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,.1); }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,.4); font-size: .75rem; letter-spacing: .1em;
+    text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: .4rem;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  .hero-scroll-arrow { font-size: 1.2rem; }
+  @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:.9} }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--verde-hoja);
+    margin-bottom: .7rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; color: var(--verde-oscuro);
+    line-height: 1.2; margin-bottom: 1.2rem;
+  }
+  .section-desc {
+    font-size: 1rem; color: var(--gris-suave);
+    line-height: 1.75; max-width: 600px; margin-bottom: 3rem;
+  }
+  .divider {
+    width: 48px; height: 3px; background: var(--verde-claro);
+    border-radius: 2px; margin-bottom: 1.5rem;
+  }
+
+  /* ── MISION/VISION ── */
+  .mv-section { background: var(--blanco-suave); }
+  .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .mv-card {
+    background: var(--blanco);
+    border: 1px solid var(--verde-suave);
+    border-radius: 12px; padding: 2.5rem;
+    position: relative; overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .mv-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,74,46,.08); }
+  .mv-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: linear-gradient(90deg, var(--verde-medio), var(--verde-claro));
+  }
+  .mv-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .mv-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--verde-oscuro);
+    margin-bottom: .8rem; font-weight: 700;
+  }
+  .mv-card p { font-size: .95rem; line-height: 1.8; color: var(--gris-texto); }
+
+  /* ── FORMULA SECTION ── */
+  .formula-section { background: var(--blanco); }
+  .formula-explainer {
+    background: var(--verde-oscuro);
+    border-radius: 16px; padding: 3rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+    align-items: center; margin-bottom: 3rem;
+  }
+  .formula-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; color: var(--blanco);
+    font-weight: 700; letter-spacing: .05em;
+    line-height: 1.3;
+  }
+  .formula-display .highlight { color: var(--verde-suave); }
+  .formula-parts { list-style: none; }
+  .formula-parts li {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: .7rem 0; border-bottom: 1px solid rgba(255,255,255,.08);
+    color: rgba(255,255,255,.85); font-size: .9rem; line-height: 1.5;
+  }
+  .formula-parts li:last-child { border-bottom: none; }
+  .fp-tag {
+    background: var(--verde-hoja); color: var(--blanco);
+    font-weight: 700; padding: .2rem .55rem; border-radius: 4px;
+    font-size: .8rem; flex-shrink: 0; margin-top: .1rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ── OVARIO ── */
+  .ovario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .ovario-card {
+    border-radius: 12px; padding: 2rem;
+    border: 1.5px solid;
+    transition: transform .25s;
+  }
+  .ovario-card:hover { transform: translateY(-3px); }
+  .ovario-card.supero {
+    border-color: var(--verde-medio);
+    background: linear-gradient(135deg, #f0faf4 0%, #e8f5ed 100%);
+  }
+  .ovario-card.infero {
+    border-color: var(--dorado);
+    background: linear-gradient(135deg, #fdf8ed 0%, #faf0d4 100%);
+  }
+  .ovario-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    margin-bottom: .4rem;
+  }
+  .ovario-card.supero h3 { color: var(--verde-medio); }
+  .ovario-card.infero h3 { color: #9a6d10; }
+  .ovario-notation {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600;
+    margin-bottom: 1rem; opacity: .6;
+  }
+  .ovario-card p { font-size: .9rem; line-height: 1.7; color: var(--gris-texto); margin-bottom: 1rem; }
+  .ovario-example {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(255,255,255,.7); border-radius: 6px;
+    padding: .4rem .85rem; font-size: .82rem; font-weight: 600;
+  }
+
+  /* ── ESPECIES ── */
+  .especies-section { background: var(--blanco-suave); }
+  .especies-tabs {
+    display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+  }
+  .tab-btn {
+    padding: .55rem 1.3rem; border-radius: 20px;
+    border: 1.5px solid var(--verde-suave);
+    background: var(--blanco); color: var(--gris-suave);
+    font-size: .83rem; font-weight: 500; cursor: pointer;
+    transition: all .2s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--verde-medio); border-color: var(--verde-medio);
+    color: var(--blanco);
+  }
+  .especies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .especie-card {
+    background: var(--blanco); border-radius: 12px;
+    border: 1px solid var(--verde-suave); padding: 1.8rem;
+    transition: transform .25s, box-shadow .25s;
+    display: none;
+  }
+  .especie-card.visible { display: block; }
+  .especie-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,74,46,.1); }
+  .especie-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+  .especie-nombre h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--verde-oscuro); font-weight: 700;
+  }
+  .especie-nombre .scientific { font-style: italic; font-size: .82rem; color: var(--gris-suave); margin-top: .1rem; }
+  .especie-badge {
+    font-size: .7rem; font-weight: 700; letter-spacing: .07em;
+    text-transform: uppercase; padding: .25rem .65rem; border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .badge-nativo { background: #d1f0de; color: var(--verde-medio); }
+  .badge-introducido { background: #fde8d4; color: #b55520; }
+  .badge-andino { background: #daeef6; color: #1a6b8a; }
+  .formula-chip {
+    font-family: 'Playfair Display', serif;
+    background: var(--verde-oscuro); color: var(--blanco);
+    padding: .5rem 1rem; border-radius: 6px;
+    font-size: .9rem; margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .especie-detail { font-size: .85rem; color: var(--gris-texto); line-height: 1.65; margin-bottom: .8rem; }
+  .especie-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+  .tag {
+    font-size: .72rem; padding: .22rem .65rem; border-radius: 10px;
+    background: var(--blanco-suave); color: var(--gris-suave);
+    border: 1px solid var(--verde-suave); font-weight: 500;
+  }
+  .warning-tag {
+    font-size: .72rem; padding: .22rem .65rem; border-radius: 10px;
+    background: #fef2ee; color: #c0392b; border: 1px solid #f5b7aa;
+    font-weight: 600;
+  }
+
+  /* ── POLINIZACION ── */
+  .polin-section { background: var(--blanco); }
+  .polin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .polin-card {
+    border-radius: 12px; padding: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .polin-card.anemo { background: linear-gradient(135deg, #f0f4ff 0%, #e4ebff 100%); border: 1px solid #c5d2f7; }
+  .polin-card.zoo   { background: linear-gradient(135deg, #fff5f0 0%, #ffe8da 100%); border: 1px solid #f7c5a5; }
+  .polin-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; margin-bottom: .3rem;
+  }
+  .polin-card.anemo h3 { color: #2b47a1; }
+  .polin-card.zoo h3 { color: #a1502b; }
+  .polin-subtitle { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1rem; opacity: .6; }
+  .polin-formula {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 700;
+    background: rgba(255,255,255,.7); border-radius: 6px;
+    padding: .5rem 1rem; display: inline-block; margin-bottom: 1rem;
+  }
+  .polin-card p { font-size: .88rem; line-height: 1.7; color: var(--gris-texto); }
+
+  /* ── MATRIZ ── */
+  .matriz-section { background: var(--blanco-suave); }
+  .matrix-table {
+    width: 100%; border-collapse: collapse;
+    background: var(--blanco); border-radius: 12px;
+    overflow: hidden; box-shadow: 0 2px 20px rgba(26,74,46,.07);
+  }
+  .matrix-table th {
+    background: var(--verde-oscuro); color: var(--blanco);
+    padding: .9rem 1rem; font-size: .8rem; font-weight: 600;
+    text-align: left; letter-spacing: .04em;
+  }
+  .matrix-table th:not(:first-child) { text-align: center; }
+  .matrix-table td {
+    padding: .85rem 1rem; border-bottom: 1px solid var(--verde-suave);
+    font-size: .88rem;
+  }
+  .matrix-table td:first-child { font-style: italic; font-weight: 600; color: var(--verde-oscuro); }
+  .matrix-table td:not(:first-child) { text-align: center; }
+  .matrix-table tr:last-child td { border-bottom: none; }
+  .matrix-table tr:hover td { background: var(--blanco-suave); }
+  .dot-yes { color: var(--verde-hoja); font-size: 1.2rem; }
+  .dot-no { color: #ddd; font-size: 1.2rem; }
+  .matrix-note {
+    margin-top: 1.5rem; padding: 1.2rem 1.5rem;
+    background: #fffbe8; border-left: 4px solid var(--dorado);
+    border-radius: 0 8px 8px 0; font-size: .88rem;
+    line-height: 1.65; color: var(--gris-texto);
+  }
+
+  /* ── FLUJO ── */
+  .flujo-section { background: var(--blanco); }
+  .flujo-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+  .flujo-steps::before {
+    content: ''; position: absolute;
+    top: 3rem; left: calc(16.66% + 1rem); right: calc(16.66% + 1rem);
+    height: 2px; background: linear-gradient(90deg, var(--verde-claro), var(--verde-medio));
+    z-index: 0;
+  }
+  .flujo-step { text-align: center; padding: 2rem 1.5rem; position: relative; z-index: 1; }
+  .flujo-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--verde-medio); color: var(--blanco);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+    margin: 0 auto 1rem; box-shadow: 0 0 0 6px var(--blanco);
+  }
+  .flujo-step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--verde-oscuro);
+    margin-bottom: .5rem; font-weight: 700;
+  }
+  .flujo-step p { font-size: .85rem; color: var(--gris-suave); line-height: 1.65; }
+  .flujo-formula-sample {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; color: var(--verde-oscuro);
+    background: var(--blanco-suave); border: 1px solid var(--verde-suave);
+    border-radius: 8px; padding: .6rem 1.2rem;
+    display: inline-block; margin-bottom: .8rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--verde-oscuro);
+    color: rgba(255,255,255,.7);
+    text-align: center; padding: 3rem 2rem;
+  }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--blanco);
+    font-weight: 700; margin-bottom: .5rem;
+  }
+  footer p { font-size: .83rem; line-height: 1.8; }
+  footer .footer-leaf { font-size: 1.8rem; margin-bottom: .8rem; display: block; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .mv-grid, .ovario-grid, .polin-grid,
+    .formula-explainer, .flujo-steps { grid-template-columns: 1fr; }
+    .flujo-steps::before { display: none; }
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="logo.png" alt="Yachay Forestal Logo" class="logo-img">
-                <span class="logo-text">Yachay Forestal</span>
-            </div>
-            <button class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#inicio" class="nav-link">Inicio</a></li>
-                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-                <li><a href="#servicios" class="nav-link">Servicios</a></li>
-                <li><a href="#trabajo" class="nav-link">Nuestro Trabajo</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-background">
-            <div class="particles"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-logo-container">
-                <img src="logo.png" alt="Yachay Forestal" class="hero-logo">
-            </div>
-            <h1 class="hero-title">Yachay Forestal</h1>
-            <p class="hero-slogan">Conectamos tecnología y naturaleza para un Ecuador verde</p>
-            <div class="hero-buttons">
-                <a href="#servicios" class="btn btn-primary">Nuestros Servicios</a>
-                <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Desliza</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="nav-logo-leaf">🌿</span>
+    Morfología Floral Andina
+  </div>
+  <ul class="nav-links">
+    <li><a href="#mision">Misión & Visión</a></li>
+    <li><a href="#formula">Fórmula Floral</a></li>
+    <li><a href="#especies">Especies</a></li>
+    <li><a href="#polinizacion">Polinización</a></li>
+    <li><a href="#matriz">Matriz Andina</a></li>
+  </ul>
+</nav>
 
-    <!-- Mission & Vision Section -->
-    <section id="nosotros" class="mission-vision">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Quiénes Somos</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="mv-grid">
-                <div class="mv-card mission-card fade-in">
-                    <div class="mv-icon">🎯</div>
-                    <h3>Nuestra Misión</h3>
-                    <p>Brindar servicios forestales y ambientales de excelencia, integrando tecnología de punta (drones, SIG, monitoreo satelital) con compromiso social y enfoque sostenible, para apoyar la conservación, restauración y aprovechamiento responsable de los recursos naturales en Ecuador.</p>
-                </div>
-                <div class="mv-card vision-card fade-in">
-                    <div class="mv-icon">🌱</div>
-                    <h3>Nuestra Visión</h3>
-                    <p>Ser la empresa líder en consultoría forestal y ambiental en la región central de Ecuador, reconocida por nuestra innovación tecnológica, compromiso con la sostenibilidad y contribución al desarrollo verde del país.</p>
-                </div>
-            </div>
-            
-            <!-- Value Proposition -->
-            <div class="value-proposition fade-in">
-                <h3 class="vp-title">¿Por qué elegirnos?</h3>
-                <div class="vp-grid">
-                    <div class="vp-item">
-                        <div class="vp-icon">🚁</div>
-                        <h4>Tecnología Avanzada</h4>
-                        <p>Uso de drones, SIG y monitoreo satelital para resultados precisos y confiables</p>
-                    </div>
-                    <div class="vp-item">
-                        <div class="vp-icon">♻️</div>
-                        <h4>Enfoque Sostenible</h4>
-                        <p>Integración de conservación, restauración y aprovechamiento responsable</p>
-                    </div>
-                    <div class="vp-item">
-                        <div class="vp-icon">🤝</div>
-                        <h4>Compromiso Social</h4>
-                        <p>Capacitación y participación comunitaria en gestión ambiental</p>
-                    </div>
-                    <div class="vp-item">
-                        <div class="vp-icon">💡</div>
-                        <h4>Innovación</h4>
-                        <p>Combinamos ciencia, tecnología y sostenibilidad de forma única</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <svg class="hero-mandala" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="90" fill="none" stroke="white" stroke-width="0.5"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="white" stroke-width="0.5"/>
+    <circle cx="100" cy="100" r="50" fill="none" stroke="white" stroke-width="0.5"/>
+    <circle cx="100" cy="100" r="30" fill="none" stroke="white" stroke-width="0.5"/>
+    <line x1="100" y1="10" x2="100" y2="190" stroke="white" stroke-width="0.3"/>
+    <line x1="10" y1="100" x2="190" y2="100" stroke="white" stroke-width="0.3"/>
+    <line x1="27" y1="27" x2="173" y2="173" stroke="white" stroke-width="0.3"/>
+    <line x1="173" y1="27" x2="27" y2="173" stroke="white" stroke-width="0.3"/>
+  </svg>
+  <div class="hero-content">
+    <span class="hero-eyebrow">ESPOCH · Facultad de Recursos Naturales</span>
+    <h1>Manual de <span>Morfología</span><br>Floral Aplicada</h1>
+    <p class="hero-sub">Decodificando la arquitectura botánica para el diseño de paisajes y la restauración andina. Un recurso digital técnico para futuros ingenieros forestales.</p>
+    <div class="hero-ctas">
+      <a href="#especies" class="btn-primary">Explorar Especies →</a>
+      <a href="#formula" class="btn-outline">¿Qué es una fórmula floral?</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Desplazar</span>
+    <span class="hero-scroll-arrow">↓</span>
+  </div>
+</section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nuestros Servicios</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Soluciones profesionales para la gestión forestal y ambiental</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">📋</div>
-                    <h3>Certificaciones Ambientales</h3>
-                    <p>Acompañamiento completo para certificaciones con mapas, monitoreo satelital y fichas técnicas certificables.</p>
-                    <div class="service-price">Desde $800</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🔍</div>
-                    <h3>Estudios de Impacto Ambiental</h3>
-                    <p>Análisis geoespacial detallado y línea base ecológica avanzada para proyectos de desarrollo.</p>
-                    <div class="service-price">Desde $1,500</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🌲</div>
-                    <h3>Inventario Forestal</h3>
-                    <p>Alta precisión con GPS, georreferenciación y análisis digital de recursos forestales.</p>
-                    <div class="service-price">Desde $500</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">📐</div>
-                    <h3>Planes de Manejo Forestal</h3>
-                    <p>Modelamiento de crecimiento, densidades óptimas y análisis mediante sistemas SIG.</p>
-                    <div class="service-price">Desde $800</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🚁</div>
-                    <h3>Levantamiento con Drones</h3>
-                    <p>Entrega de ortomosaicos, curvas de nivel y nubes de puntos de alta resolución.</p>
-                    <div class="service-price">Desde $350</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🛰️</div>
-                    <h3>Monitoreo Satelital NDVI</h3>
-                    <p>Procesamiento multitemporal y reportes automáticos de salud vegetal.</p>
-                    <div class="service-price">Desde $250</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">👨‍🏫</div>
-                    <h3>Asesoramiento Técnico</h3>
-                    <p>Informes técnicos detallados, soporte geoespacial y salidas de campo especializadas.</p>
-                    <div class="service-price">Desde $300</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">🎓</div>
-                    <h3>Capacitaciones Comunitarias</h3>
-                    <p>Material técnico digital y sesiones prácticas con drones para comunidades locales.</p>
-                    <div class="service-price">Desde $200</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- MISION / VISION -->
+<section class="mv-section" id="mision">
+  <div class="container">
+    <div class="section-label fade-in">Propósito Institucional</div>
+    <div class="divider fade-in"></div>
+    <div class="mv-grid fade-in">
+      <div class="mv-card">
+        <div class="mv-icon">🎯</div>
+        <h3>Misión</h3>
+        <p>Proveer a los estudiantes de Ingeniería Forestal y a la comunidad académica de la ESPOCH una herramienta digital técnica y visualmente innovadora que facilite el aprendizaje de la morfología floral. Nuestra misión es sistematizar el conocimiento científico de las especies del Museo Vivo del Árbol, transformando datos complejos en un recurso didáctico de fácil acceso que fortalezca la identificación botánica en campo y el valor de nuestra biodiversidad universitaria.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-icon">🌄</div>
+        <h3>Visión</h3>
+        <p>Consolidarse como el recurso digital de referencia líder en el estudio de la arquitectura floral y dendrología dentro de la Facultad de Recursos Naturales. Aspiramos a ser un modelo de innovación tecnológica aplicada a la botánica, que impulse la formación de profesionales forestales de excelencia, capaces de comprender y conservar la riqueza natural de la región andina mediante el uso de herramientas de vanguardia.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- What We Work On Section -->
-    <section id="trabajo" class="work-on">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">En Qué Trabajamos</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Sectores estratégicos en Riobamba, Chimborazo</p>
-            </div>
-            <div class="work-grid">
-                <div class="work-card fade-in">
-                    <div class="work-number">01</div>
-                    <h3>Empresas Constructoras</h3>
-                    <p>Proyectos viales, urbanísticos e infraestructura pública/privada</p>
-                    <ul class="work-list">
-                        <li>Levantamientos geoespaciales con drones y SIG</li>
-                        <li>Estudios de impacto ambiental para MAATE y GAD Municipal</li>
-                    </ul>
-                </div>
-                <div class="work-card fade-in">
-                    <div class="work-number">02</div>
-                    <h3>Empresas Agroindustriales</h3>
-                    <p>Exportadores de brócoli, quinua, lácteos y productos agrícolas</p>
-                    <ul class="work-list">
-                        <li>Certificaciones ambientales</li>
-                        <li>Manejo sostenible del suelo y recursos hídricos</li>
-                        <li>Análisis de impacto por consumo de recursos</li>
-                    </ul>
-                </div>
-                <div class="work-card fade-in">
-                    <div class="work-number">03</div>
-                    <h3>Proyectos de Carbono</h3>
-                    <p>Empresas enfocadas en compensación ambiental</p>
-                    <ul class="work-list">
-                        <li>Diseño de proyectos de captura de carbono</li>
-                        <li>Restauraciones ecológicas</li>
-                        <li>Monitoreos satelitales</li>
-                    </ul>
-                </div>
-                <div class="work-card fade-in">
-                    <div class="work-number">04</div>
-                    <h3>ONGs y Comunidades</h3>
-                    <p>GADs parroquiales y comunidades rurales</p>
-                    <ul class="work-list">
-                        <li>Reforestación y conservación</li>
-                        <li>Ordenamiento territorial</li>
-                        <li>Estudios de biodiversidad</li>
-                        <li>Proyectos productivos sostenibles</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- FORMULA FLORAL -->
+<section class="formula-section" id="formula">
+  <div class="container">
+    <div class="section-label fade-in">Herramienta de Lectura Botánica</div>
+    <div class="divider fade-in"></div>
+    <h2 class="section-title fade-in">Anatomía de una Fórmula Floral</h2>
+    <p class="section-desc fade-in">Una fórmula floral es el código que permite predecir el comportamiento reproductivo de una planta, sus polinizadores y su hábitat óptimo. Leer esta notación es la clave para entender el ecosistema.</p>
 
-    <!-- Where We Work Section -->
-    <section class="where-work">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Dónde Trabajamos</h2>
-                <div class="section-divider"></div>
-            </div>
-            <div class="location-content fade-in">
-                <div class="location-info">
-                    <h3>📍 Nuestra Ubicación</h3>
-                    <p class="location-main">Riobamba, Provincia de Chimborazo, Ecuador</p>
-                    <div class="location-details">
-                        <h4>Cobertura Regional</h4>
-                        <p>Brindamos servicios en toda la región central del Ecuador, con especial enfoque en:</p>
-                        <ul>
-                            <li>Cantón Riobamba</li>
-                            <li>Provincia de Chimborazo</li>
-                            <li>Regiones aledañas según requerimientos del proyecto</li>
-                        </ul>
-                    </div>
-                    <div class="location-partners">
-                        <h4>Alianzas Estratégicas</h4>
-                        <div class="partners-list">
-                            <div class="partner-item">
-                                <span class="partner-icon">🏛️</span>
-                                <span>GADs Municipales y Parroquiales</span>
-                            </div>
-                            <div class="partner-item">
-                                <span class="partner-icon">🎓</span>
-                                <span>ESPOCH y UNACH</span>
-                            </div>
-                            <div class="partner-item">
-                                <span class="partner-icon">🤝</span>
-                                <span>ONGs Locales</span>
-                            </div>
-                            <div class="partner-item">
-                                <span class="partner-icon">🏢</span>
-                                <span>Empresas de Proyectos Ambientales</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="formula-explainer fade-in">
+      <div>
+        <div class="formula-display">
+          ♀ <span class="highlight">↓</span> K<sub style="font-size:.6em">(5)</sub> [C<sub style="font-size:.6em">(5)</sub> A2] G<sub style="font-size:.6em">(2)</sub>
         </div>
-    </section>
+        <div style="margin-top:1rem; color:rgba(255,255,255,.5); font-size:.8rem; letter-spacing:.06em; text-transform:uppercase;">Ejemplo: Salvia rosmarinus (Romero)</div>
+      </div>
+      <ul class="formula-parts">
+        <li><span class="fp-tag">♀/♂/⚥</span><div><strong>Sexo floral:</strong> Femenina (♀), masculina (♂) o hermafrodita (⚥). Determina el sistema de reproducción de la especie.</div></li>
+        <li><span class="fp-tag">*/ ↓</span><div><strong>Simetría:</strong> Actinomorfa (*) radial o zigomorfa (↓) bilateral. La zigomorfia dirige polinizadores específicos.</div></li>
+        <li><span class="fp-tag">K</span><div><strong>Cáliz (sépalos):</strong> Número de sépalos. Paréntesis indica fusión (gamosépalo). Ej: K(5) = 5 sépalos concrescentes.</div></li>
+        <li><span class="fp-tag">C</span><div><strong>Corola (pétalos):</strong> Número de pétalos. C0 = apétala; C(5) = 5 pétalos fusionados (gamopétala).</div></li>
+        <li><span class="fp-tag">A</span><div><strong>Androceo (estambres):</strong> Número de estambres. A∞ = numerosos; A° = estaminodios abortados.</div></li>
+        <li><span class="fp-tag">G</span><div><strong>Gineceo (carpelos):</strong> Número de carpelos. G con línea debajo = ovario ínfero. Sin línea = ovario súpero.</div></li>
+      </ul>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Contáctanos</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Estamos listos para ayudarte con tu próximo proyecto</p>
-            </div>
-            <div class="contact-content fade-in">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <h4>Email</h4>
-                        <p>info@yachayforestal.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <h4>Síguenos</h4>
-                        <a href="https://www.instagram.com/yachay.forestal/" target="_blank" class="social-link">
-                            @yachay.forestal
-                        </a>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <h4>Ubicación</h4>
-                        <p>Riobamba, Chimborazo<br>Ecuador</p>
-                    </div>
-                </div>
-            </div>
+    <!-- Ovario -->
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--verde-oscuro); margin-bottom:1.5rem;" class="fade-in">El Ovario en Perspectiva Espacial</h3>
+    <div class="ovario-grid fade-in">
+      <div class="ovario-card supero">
+        <h3>Ovario Súpero</h3>
+        <div class="ovario-notation">Notación: G1 o G</div>
+        <p>Se ubica por encima del punto de inserción de los sépalos y pétalos. Frecuente en familias como Leguminosas y Rosáceas. Su posición elevada lo protege de los insectos rastreros.</p>
+        <div class="ovario-example">🍑 Ejemplo: <em>Prunus serotina</em> (Capulí)</div>
+      </div>
+      <div class="ovario-card infero">
+        <h3>Ovario Ínfero</h3>
+        <div class="ovario-notation">Notación: G̲</div>
+        <p>Se encuentra por debajo de los verticilos florales, fusionado con el receptáculo. Característico de familias como Myrtaceae y Juglandaceae. Mayor protección mecánica del fruto.</p>
+        <div class="ovario-example">🌳 Ejemplo: <em>Eucalyptus globulus / Juglans neotropica</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIES -->
+<section class="especies-section" id="especies">
+  <div class="container">
+    <div class="section-label fade-in">Catálogo Botánico</div>
+    <div class="divider fade-in"></div>
+    <h2 class="section-title fade-in">Especies del Ecosistema Andino</h2>
+    <p class="section-desc fade-in">Explora las fórmulas florales y características morfológicas de las especies clave para el diseño de paisajes y la restauración ecológica en la región andina.</p>
+
+    <div class="especies-tabs fade-in">
+      <button class="tab-btn active" onclick="filterEspecies('all', this)">Todas</button>
+      <button class="tab-btn" onclick="filterEspecies('maderable', this)">Maderables</button>
+      <button class="tab-btn" onclick="filterEspecies('agroforestal', this)">Agroforestales</button>
+      <button class="tab-btn" onclick="filterEspecies('rosaceae', this)">Rosáceas</button>
+      <button class="tab-btn" onclick="filterEspecies('ornamental', this)">Ornamentales</button>
+    </div>
+
+    <div class="especies-grid">
+
+      <!-- Cedrela montana -->
+      <div class="especie-card visible" data-cat="maderable">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Cedro</h4>
+            <div class="scientific">Cedrela montana</div>
+          </div>
+          <span class="especie-badge badge-nativo">Nativo</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="logo.png" alt="Yachay Forestal">
-                    <p>Yachay Forestal Cía. Ltda.</p>
-                </div>
-                <div class="footer-text">
-                    <p>&copy; 2026 Yachay Forestal. Todos los derechos reservados.</p>
-                    <p class="footer-slogan">Conectamos tecnología y naturaleza para un Ecuador verde</p>
-                </div>
-            </div>
+        <div class="formula-chip">♀ * K(5) C(5) A5 G(5)</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Flores funcionalmente masculinas y femeninas en la misma planta. Ovario súpero pentacarpelar. Árbol forestal de 20–40 m. Simetría actinomorfa perfecta.</p>
+        <p class="especie-detail"><strong>Distribución:</strong> Nativo de Ecuador y Sudamérica. Especie de reforestación prioritaria.</p>
+        <div class="especie-tags">
+          <span class="tag">🌲 20–40 m</span>
+          <span class="tag">🪵 Madera fina</span>
+          <span class="tag">🌱 Reforestación</span>
+          <span class="tag">Ecuador/Sudamérica</span>
         </div>
-    </footer>
+      </div>
 
-    <script src="script.js"></script>
+      <!-- Juglans neotropica -->
+      <div class="especie-card visible" data-cat="maderable">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Nogal</h4>
+            <div class="scientific">Juglans neotropica</div>
+          </div>
+          <span class="especie-badge badge-andino">Andino</span>
+        </div>
+        <div class="formula-chip">♀ * K4 C0 G̲(2) / ♂ * K4 C0 A∞</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Monoico con amentos colgantes. Ausencia total de corola (C0) y ovario ínfero. Árbol caducifolio de 30 m. Madera de alta calidad y valor económico.</p>
+        <div class="especie-tags">
+          <span class="tag">🌳 30 m</span>
+          <span class="tag">🍃 Caducifolio</span>
+          <span class="tag">🪵 Alta calidad</span>
+          <span class="tag">Nativo andino</span>
+        </div>
+      </div>
+
+      <!-- Prunus serotina -->
+      <div class="especie-card visible" data-cat="rosaceae">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Capulí</h4>
+            <div class="scientific">Prunus serotina</div>
+          </div>
+          <span class="especie-badge badge-nativo">Nativo</span>
+        </div>
+        <div class="formula-chip">⚥ * K5 C5 A∞ G1</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Androceo exuberante (A∞) y gineceo monocarpelar (G1) que origina drupas. Comparte la fórmula esencial con toda la familia Rosaceae. Ovario súpero.</p>
+        <div class="especie-tags">
+          <span class="tag">🍒 Fruto comestible</span>
+          <span class="tag">🌿 Medicinal</span>
+          <span class="tag">América (Nativo)</span>
+        </div>
+        <div style="margin-top:.6rem"><span class="warning-tag">⚠️ Hojas y semillas tóxicas</span></div>
+      </div>
+
+      <!-- Prunus domestica -->
+      <div class="especie-card visible" data-cat="rosaceae">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Ciruelo</h4>
+            <div class="scientific">Prunus domestica</div>
+          </div>
+          <span class="especie-badge badge-introducido">Introducido</span>
+        </div>
+        <div class="formula-chip">⚥ * K5 C5 A∞ G1</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Idéntica fórmula al capulí —ambas son Prunus— demostrando la conservación morfológica familiar. Originaria de Europa/Asia. Cultivada para alimentación y conservas.</p>
+        <div class="especie-tags">
+          <span class="tag">🥭 Alimentación</span>
+          <span class="tag">🏺 Conservas</span>
+          <span class="tag">Europa/Asia</span>
+        </div>
+      </div>
+
+      <!-- Schinus molle -->
+      <div class="especie-card visible" data-cat="ornamental agroforestal">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Molle</h4>
+            <div class="scientific">Schinus molle</div>
+          </div>
+          <span class="especie-badge badge-andino">Andino</span>
+        </div>
+        <div class="formula-chip">♀ * K(5) C5 A10° G(3)</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Especie funcionalmente dioica. Flor femenina con androceo abortado (A10°) transformado en 10 estaminodios vestigiales. Ovario que aborta dos lóculos. Disco nectarífero intrastaminal.</p>
+        <div class="especie-tags">
+          <span class="tag">🌬️ Control erosión</span>
+          <span class="tag">🛡️ Plaguicida natural</span>
+          <span class="tag">🌶️ Pimienta rosa</span>
+        </div>
+      </div>
+
+      <!-- Inga edulis -->
+      <div class="especie-card visible" data-cat="agroforestal">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Guaba</h4>
+            <div class="scientific">Inga edulis</div>
+          </div>
+          <span class="especie-badge badge-nativo">Nativo</span>
+        </div>
+        <div class="formula-chip">* K(5) C(5) A(∞) G1</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Androceo infinito (A∞) soldado en su base formando un tubo estaminal exerto. Simbiosis radicular con Rhizobium para fijación de nitrógeno. Sombra regulada para café/cacao.</p>
+        <div class="especie-tags">
+          <span class="tag">☀️ Sombra café/cacao</span>
+          <span class="tag">🌿 Fijación N₂</span>
+          <span class="tag">🍫 Agroforestal</span>
+        </div>
+      </div>
+
+      <!-- Sapium glandulosum -->
+      <div class="especie-card visible" data-cat="agroforestal">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Falso Lechero</h4>
+            <div class="scientific">Sapium glandulosum</div>
+          </div>
+          <span class="especie-badge badge-nativo">Nativo</span>
+        </div>
+        <div class="formula-chip">♂ * K2-3 C0 A2-3</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Flores apétalas (C0) agrupadas en espigas. Especie monoica. Rol de rápida restauración ecológica y protección de suelos. Madera liviana.</p>
+        <div class="especie-tags">
+          <span class="tag">🔄 Restauración</span>
+          <span class="tag">🪵 Madera liviana</span>
+          <span class="tag">Protección suelos</span>
+        </div>
+      </div>
+
+      <!-- Eucalyptus globulus -->
+      <div class="especie-card visible" data-cat="maderable ornamental">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Eucalipto</h4>
+            <div class="scientific">Eucalyptus globulus</div>
+          </div>
+          <span class="especie-badge badge-introducido">Introducido</span>
+        </div>
+        <div class="formula-chip">♀ * K(4) C(4) A∞ G̲(2-5)</div>
+        <p class="especie-detail"><strong>Modificación clave:</strong> Cáliz y corola fuertemente soldados formando un opérculo protector que cae durante la antesis. Ovario ínfero. Los estambres son el verdadero atractivo visual.</p>
+        <div class="especie-tags">
+          <span class="tag">🪵 Madera</span>
+          <span class="tag">🌿 Aceites esenciales</span>
+          <span class="tag">Opérculo único</span>
+        </div>
+      </div>
+
+      <!-- Buddleja incana -->
+      <div class="especie-card visible" data-cat="ornamental andino">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Quishuar</h4>
+            <div class="scientific">Buddleja incana</div>
+          </div>
+          <span class="especie-badge badge-andino">Andino</span>
+        </div>
+        <div class="formula-chip">♀ * K(4) [C(4) A4] G(2)</div>
+        <p class="especie-detail"><strong>Modificación clave:</strong> Árbol andino de alta montaña. Corola tubular unida a 4 estambres isóstonos. Hojas con denso tomento blanquecino para soportar el frío extremo de las cuencas altoandinas.</p>
+        <div class="especie-tags">
+          <span class="tag">🏔️ Alta montaña</span>
+          <span class="tag">🌊 Cuencas andinas</span>
+          <span class="tag">Forestación</span>
+        </div>
+      </div>
+
+      <!-- Caesalpinia spinosa -->
+      <div class="especie-card visible" data-cat="agroforestal">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Tara</h4>
+            <div class="scientific">Caesalpinia spinosa</div>
+          </div>
+          <span class="especie-badge badge-andino">Andino</span>
+        </div>
+        <div class="formula-chip">⚥ ↓ K5 C5 A10 G̲1</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Simetría zigomorfa (↓) con el sépalo inferior en forma de bote. Glándula nectarífera basal. Arbusto espinoso andino de uso industrial: producción de taninos y curtiembre.</p>
+        <div class="especie-tags">
+          <span class="tag">🏭 Taninos</span>
+          <span class="tag">👜 Curtiembre</span>
+          <span class="tag">🌵 Arbusto espinoso</span>
+        </div>
+      </div>
+
+      <!-- Bomarea edulis -->
+      <div class="especie-card visible" data-cat="ornamental">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Flor de Pacay</h4>
+            <div class="scientific">Bomarea edulis</div>
+          </div>
+          <span class="especie-badge badge-andino">Andino</span>
+        </div>
+        <div class="formula-chip">♀ * K3 C3 A3+3 G(3)</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Enredadera nativa andina. Flores péndulas, tubulares, de colores llamativos, con ovario ínfero tricarpelar. Piezas florales libres. Tipica monocotiledónea con patrón trimero.</p>
+        <div class="especie-tags">
+          <span class="tag">🌸 Ornamental</span>
+          <span class="tag">🍑 Fruto comestible</span>
+          <span class="tag">Enredadera nativa</span>
+        </div>
+      </div>
+
+      <!-- Salvia rosmarinus -->
+      <div class="especie-card visible" data-cat="ornamental agroforestal">
+        <div class="especie-header">
+          <div class="especie-nombre">
+            <h4>Romero</h4>
+            <div class="scientific">Salvia rosmarinus</div>
+          </div>
+          <span class="especie-badge badge-introducido">Introducido</span>
+        </div>
+        <div class="formula-chip">♀ ↓ K(5) [C(5) A2] G(2)</div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Cáliz gamosépalo bilabiado. Fuerte zigomorfia para dirigir polinizadores específicos. Reducción del androceo a solo 2 estambres funcionales. Usos en agricultura urbana, medicinal y aceites esenciales.</p>
+        <div class="especie-tags">
+          <span class="tag">🌿 Medicinal</span>
+          <span class="tag">🧴 Aceites esenciales</span>
+          <span class="tag">🏙️ Agricultura urbana</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POLINIZACION -->
+<section class="polin-section" id="polinizacion">
+  <div class="container">
+    <div class="section-label fade-in">Estrategias Reproductivas</div>
+    <div class="divider fade-in"></div>
+    <h2 class="section-title fade-in">Espectro Reproductivo: Anemofilia vs Zoofilia</h2>
+    <p class="section-desc fade-in">La fórmula floral predice directamente quién llevará el polen. Dos estrategias opuestas dominan el paisaje andino, cada una optimizada por millones de años de evolución.</p>
+
+    <div class="polin-grid fade-in">
+      <div class="polin-card anemo">
+        <h3>Anemofilia — La Reducción Extrema</h3>
+        <div class="polin-subtitle">🌬️ Polinización por Viento</div>
+        <div class="polin-formula">* K(4) C(4) ó 0 · A2 · G(2)</div>
+        <p>El <em>Fraxinus sp.</em> (Fresno) es el modelo de adaptación anemófila. Reducción severa a solo <strong>2 estambres funcionales</strong> y frecuente ausencia total de corola (C0). Sin necesidad de atraer insectos, la planta invierte en producir grandes cantidades de polen liviano que el viento transporta. También el Nogal (<em>Juglans neotropica</em>) con sus amentos colgantes sigue esta estrategia.</p>
+      </div>
+      <div class="polin-card zoo">
+        <h3>Zoofilia — El Reclamo Visual</h3>
+        <div class="polin-subtitle">🐝 Polinización por Animales</div>
+        <div class="polin-formula">* K(5) C5 A∞ G(3-4)</div>
+        <p>El <em>Callistemon citrinus</em> (Cepillo Rojo) encarna la especialización zoófila. El perianto es vestigial; el verdadero reclamo estético son los estambres (A∞) rojos y exertos que atraen colibríes y abejas. El ovario es ínfero (G(3-4)). La Guaba (<em>Inga edulis</em>) también usa esta estrategia con su tubo estaminal exerto.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem; padding:1.5rem 2rem; background:var(--blanco-suave); border-radius:12px; border:1px solid var(--verde-suave);" class="fade-in">
+      <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--verde-oscuro); margin-bottom:.5rem;">Conclusión Evolutiva</div>
+      <p style="font-size:.9rem; line-height:1.75; color:var(--gris-texto);">La evolución floral andina empuja hacia la <strong>fusión de piezas (gamopetalia)</strong> y la <strong>asimetría zigomorfa</strong> para maximizar el éxito con polinizadores específicos en terrenos difíciles. Las flores con perianto reducido o ausente son anemófilas; las de perianto colorido y estambres exertos son zoófilas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MATRIZ ANDINA -->
+<section class="matriz-section" id="matriz">
+  <div class="container">
+    <div class="section-label fade-in">Guía de Selección</div>
+    <div class="divider fade-in"></div>
+    <h2 class="section-title fade-in">Matriz de Aplicación en el Paisaje Andino</h2>
+    <p class="section-desc fade-in">¿Qué especie necesitas para tu proyecto? Esta matriz cruza las especies con sus usos ecológicos y productivos para orientar la toma de decisiones en restauración y diseño forestal.</p>
+
+    <div class="fade-in" style="overflow-x:auto">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Especie</th>
+          <th>Maderable</th>
+          <th>Restauración / Suelos</th>
+          <th>Fijación N₂</th>
+          <th>Alimenticio</th>
+          <th>Medicinal</th>
+          <th>Ornamental Urbano</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Schinus molle</td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-yes">●</span></td>
+        </tr>
+        <tr>
+          <td>Inga edulis</td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+        </tr>
+        <tr>
+          <td>Caesalpinia spinosa</td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-yes">●</span></td>
+        </tr>
+        <tr>
+          <td>Cedrela montana</td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+        </tr>
+        <tr>
+          <td>Fraxinus sp.</td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+        </tr>
+        <tr>
+          <td>Buddleja incana</td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+        </tr>
+        <tr>
+          <td>Prunus serotina</td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-no">—</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-yes">●</span></td>
+          <td><span class="dot-yes">●</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="matrix-note fade-in">
+      <strong>Síntesis Analítica:</strong> Especies como <em>Schinus molle</em> y <em>Caesalpinia spinosa</em> representan "navajas suizas" ecológicas, justificando su presencia dominante en la planificación territorial andina. La fijación de nitrógeno de <em>Inga edulis</em> la convierte en infraestructura biológica esencial para sistemas agroforestales.
+    </div>
+  </div>
+</section>
+
+<!-- FLUJO CONCEPTUAL -->
+<section class="flujo-section" id="flujo">
+  <div class="container">
+    <div class="section-label fade-in">Marco Conceptual</div>
+    <div class="divider fade-in"></div>
+    <h2 class="section-title fade-in">De la Microarquitectura al Ecosistema</h2>
+    <p class="section-desc fade-in">El poder de la morfología floral aplicada reside en el salto de escala: de un símbolo en una fórmula a decisiones de diseño territorial.</p>
+
+    <div class="flujo-steps fade-in">
+      <div class="flujo-step">
+        <div class="flujo-num">1</div>
+        <div class="flujo-formula-sample">⚥ * K(5) C(5) A∞ G1</div>
+        <h4>La Fórmula (El Código)</h4>
+        <p>Leer la fórmula floral permite predecir el comportamiento reproductivo y los requerimientos del polinizador. Es el ADN visible de la flor.</p>
+      </div>
+      <div class="flujo-step">
+        <div class="flujo-num">2</div>
+        <div style="font-size:2.5rem;margin-bottom:.8rem">🌸</div>
+        <h4>La Morfología (La Máquina)</h4>
+        <p>La posición del ovario (súpero vs. ínfero) y la reducción anatómica (anemofilia) dictan el tipo de fruto y el hábitat óptimo de la especie.</p>
+      </div>
+      <div class="flujo-step">
+        <div class="flujo-num">3</div>
+        <div style="font-size:2.5rem;margin-bottom:.8rem">🏔️</div>
+        <h4>El Paisaje (La Aplicación)</h4>
+        <p>Seleccionar especies basándose en su arquitectura reproductiva garantiza una restauración ecológica resiliente y sistemas forestales económicamente viables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-leaf">🌿</span>
+  <div class="footer-logo">Manual de Morfología Floral Aplicada</div>
+  <p>Escuela Superior Politécnica de Chimborazo · Facultad de Recursos Naturales<br>
+  Ingeniería Forestal · Museo Vivo del Árbol<br>
+  <br>
+  <em style="font-size:.78rem; opacity:.6">Recurso didáctico digital para la identificación botánica en campo y la restauración andina</em>
+  </p>
+</footer>
+
+<script>
+  // Filter especies
+  function filterEspecies(cat, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.especie-card').forEach(card => {
+      if (cat === 'all') {
+        card.classList.add('visible');
+      } else {
+        const cats = card.dataset.cat || '';
+        card.classList.toggle('visible', cats.includes(cat));
+      }
+    });
+  }
+
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
