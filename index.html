@@ -3,22 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manual de Morfología Floral Aplicada · ESPOCH</title>
+<title>E-Book Digital Técnico · Morfología Floral ESPOCH</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --verde-oscuro: #1a4a2e;
-    --verde-medio: #2d6a4f;
-    --verde-claro: #52b788;
-    --verde-suave: #b7e4c7;
-    --verde-hoja: #40916c;
+    --verde-oscuro: #0a2e16;
+    --verde-medio: #1a5e30;
+    --verde-claro: #329350;
+    --verde-suave: #c1e8cd;
+    --verde-hoja: #247c3e;
     --blanco: #ffffff;
-    --blanco-hueso: #f8faf8;
-    --blanco-suave: #edf5f0;
-    --dorado: #d4a017;
-    --terracota: #c4622d;
-    --gris-texto: #2c3e2d;
-    --gris-suave: #6b7c6c;
+    --blanco-hueso: #f2f9f4;
+    --blanco-suave: #e6f4eb;
+    --gris-texto: #1c2b20;
+    --gris-suave: #4e6654;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,6 +28,14 @@
     background: var(--blanco);
     color: var(--gris-texto);
     overflow-x: hidden;
+  }
+
+  .cite {
+    font-size: 0.75rem;
+    color: var(--verde-claro);
+    font-weight: 600;
+    vertical-align: super;
+    margin-left: 2px;
   }
 
   /* ── NAV ── */
@@ -68,16 +74,16 @@
   .hero-grid-bg {
     position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
     background-size: 40px 40px;
   }
   .hero-mandala {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-    width: 600px; height: 600px; opacity: .06;
+    width: 600px; height: 600px; opacity: .08;
     pointer-events: none;
   }
-  .hero-content { position: relative; z-index: 2; max-width: 780px; }
+  .hero-content { position: relative; z-index: 2; max-width: 850px; }
   .hero-eyebrow {
     display: inline-block; background: rgba(255,255,255,.12);
     border: 1px solid rgba(255,255,255,.25);
@@ -87,14 +93,15 @@
   }
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 6vw, 4.5rem);
-    font-weight: 900; line-height: 1.08;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900; line-height: 1.1;
     color: var(--blanco); margin-bottom: 1rem;
+    text-transform: uppercase;
   }
   .hero h1 span { color: var(--verde-suave); }
   .hero-sub {
-    font-size: 1.1rem; color: rgba(255,255,255,.75);
-    line-height: 1.7; max-width: 560px; margin: 0 auto 2.5rem;
+    font-size: 1.1rem; color: rgba(255,255,255,.85);
+    line-height: 1.7; max-width: 600px; margin: 0 auto 2.5rem;
     font-weight: 300;
   }
   .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
@@ -116,7 +123,7 @@
   .btn-outline:hover { background: rgba(255,255,255,.1); }
   .hero-scroll {
     position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-    color: rgba(255,255,255,.4); font-size: .75rem; letter-spacing: .1em;
+    color: rgba(255,255,255,.5); font-size: .75rem; letter-spacing: .1em;
     text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: .4rem;
     animation: pulse 2.5s ease-in-out infinite;
   }
@@ -156,7 +163,7 @@
     position: relative; overflow: hidden;
     transition: transform .3s, box-shadow .3s;
   }
-  .mv-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,74,46,.08); }
+  .mv-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(10,46,22,.08); }
   .mv-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0;
     height: 4px; background: linear-gradient(90deg, var(--verde-medio), var(--verde-claro));
@@ -207,24 +214,24 @@
   }
   .ovario-card:hover { transform: translateY(-3px); }
   .ovario-card.supero {
-    border-color: var(--verde-medio);
+    border-color: var(--verde-claro);
     background: linear-gradient(135deg, #f0faf4 0%, #e8f5ed 100%);
   }
   .ovario-card.infero {
-    border-color: var(--dorado);
-    background: linear-gradient(135deg, #fdf8ed 0%, #faf0d4 100%);
+    border-color: var(--verde-medio);
+    background: linear-gradient(135deg, #eaf2ed 0%, #dce8e0 100%);
   }
   .ovario-card h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem; font-weight: 700;
     margin-bottom: .4rem;
   }
-  .ovario-card.supero h3 { color: var(--verde-medio); }
-  .ovario-card.infero h3 { color: #9a6d10; }
+  .ovario-card.supero h3 { color: var(--verde-claro); }
+  .ovario-card.infero h3 { color: var(--verde-medio); }
   .ovario-notation {
     font-family: 'Playfair Display', serif;
     font-size: 1rem; font-weight: 600;
-    margin-bottom: 1rem; opacity: .6;
+    margin-bottom: 1rem; opacity: .7;
   }
   .ovario-card p { font-size: .9rem; line-height: 1.7; color: var(--gris-texto); margin-bottom: 1rem; }
   .ovario-example {
@@ -257,7 +264,7 @@
     display: none;
   }
   .especie-card.visible { display: block; }
-  .especie-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,74,46,.1); }
+  .especie-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(10,46,22,.1); }
   .especie-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
   .especie-nombre h4 {
     font-family: 'Playfair Display', serif;
@@ -270,8 +277,8 @@
     flex-shrink: 0;
   }
   .badge-nativo { background: #d1f0de; color: var(--verde-medio); }
-  .badge-introducido { background: #fde8d4; color: #b55520; }
-  .badge-andino { background: #daeef6; color: #1a6b8a; }
+  .badge-introducido { background: #e6ece8; color: var(--verde-oscuro); border: 1px solid var(--verde-suave); }
+  .badge-andino { background: #cce3d5; color: var(--verde-hoja); }
   .formula-chip {
     font-family: 'Playfair Display', serif;
     background: var(--verde-oscuro); color: var(--blanco);
@@ -288,7 +295,7 @@
   }
   .warning-tag {
     font-size: .72rem; padding: .22rem .65rem; border-radius: 10px;
-    background: #fef2ee; color: #c0392b; border: 1px solid #f5b7aa;
+    background: #f4faeb; color: var(--verde-oscuro); border: 1px solid var(--verde-claro);
     font-weight: 600;
   }
 
@@ -299,20 +306,19 @@
     border-radius: 12px; padding: 2rem;
     position: relative; overflow: hidden;
   }
-  .polin-card.anemo { background: linear-gradient(135deg, #f0f4ff 0%, #e4ebff 100%); border: 1px solid #c5d2f7; }
-  .polin-card.zoo   { background: linear-gradient(135deg, #fff5f0 0%, #ffe8da 100%); border: 1px solid #f7c5a5; }
+  .polin-card.anemo { background: linear-gradient(135deg, #f0f7f2 0%, #e1eee5 100%); border: 1px solid var(--verde-suave); }
+  .polin-card.zoo   { background: linear-gradient(135deg, #f4fbf6 0%, #d8eadf 100%); border: 1px solid var(--verde-suave); }
   .polin-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.25rem; margin-bottom: .3rem;
+    font-size: 1.25rem; margin-bottom: .3rem; color: var(--verde-oscuro);
   }
-  .polin-card.anemo h3 { color: #2b47a1; }
-  .polin-card.zoo h3 { color: #a1502b; }
-  .polin-subtitle { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1rem; opacity: .6; }
+  .polin-subtitle { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1rem; opacity: .7; color: var(--verde-medio); }
   .polin-formula {
     font-family: 'Playfair Display', serif;
     font-size: 1.05rem; font-weight: 700;
-    background: rgba(255,255,255,.7); border-radius: 6px;
+    background: rgba(255,255,255,.8); border-radius: 6px;
     padding: .5rem 1rem; display: inline-block; margin-bottom: 1rem;
+    color: var(--verde-oscuro);
   }
   .polin-card p { font-size: .88rem; line-height: 1.7; color: var(--gris-texto); }
 
@@ -321,7 +327,7 @@
   .matrix-table {
     width: 100%; border-collapse: collapse;
     background: var(--blanco); border-radius: 12px;
-    overflow: hidden; box-shadow: 0 2px 20px rgba(26,74,46,.07);
+    overflow: hidden; box-shadow: 0 2px 20px rgba(10,46,22,.07);
   }
   .matrix-table th {
     background: var(--verde-oscuro); color: var(--blanco);
@@ -338,10 +344,10 @@
   .matrix-table tr:last-child td { border-bottom: none; }
   .matrix-table tr:hover td { background: var(--blanco-suave); }
   .dot-yes { color: var(--verde-hoja); font-size: 1.2rem; }
-  .dot-no { color: #ddd; font-size: 1.2rem; }
+  .dot-no { color: #ccc; font-size: 1.2rem; }
   .matrix-note {
     margin-top: 1.5rem; padding: 1.2rem 1.5rem;
-    background: #fffbe8; border-left: 4px solid var(--dorado);
+    background: #f0f7f2; border-left: 4px solid var(--verde-medio);
     border-radius: 0 8px 8px 0; font-size: .88rem;
     line-height: 1.65; color: var(--gris-texto);
   }
@@ -371,7 +377,7 @@
   .flujo-step p { font-size: .85rem; color: var(--gris-suave); line-height: 1.65; }
   .flujo-formula-sample {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; font-weight: 700; color: var(--verde-oscuro);
+    font-size: 1.2rem; font-weight: 700; color: var(--verde-oscuro);
     background: var(--blanco-suave); border: 1px solid var(--verde-suave);
     border-radius: 8px; padding: .6rem 1.2rem;
     display: inline-block; margin-bottom: .8rem;
@@ -380,7 +386,7 @@
   /* ── FOOTER ── */
   footer {
     background: var(--verde-oscuro);
-    color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,.8);
     text-align: center; padding: 3rem 2rem;
   }
   footer .footer-logo {
@@ -407,7 +413,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <span class="nav-logo-leaf">🌿</span>
@@ -422,7 +427,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid-bg"></div>
   <svg class="hero-mandala" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -436,9 +440,9 @@
     <line x1="173" y1="27" x2="27" y2="173" stroke="white" stroke-width="0.3"/>
   </svg>
   <div class="hero-content">
-    <span class="hero-eyebrow">ESPOCH · Facultad de Recursos Naturales</span>
-    <h1>Manual de <span>Morfología</span><br>Floral Aplicada</h1>
-    <p class="hero-sub">Decodificando la arquitectura botánica para el diseño de paisajes y la restauración andina. Un recurso digital técnico para futuros ingenieros forestales.</p>
+    <span class="hero-eyebrow">Facultad de Recursos Naturales</span>
+    <h1>DESARROLLO DE UN <span>E-BOOK DIGITAL TÉCNICO</span><br>SOBRE MORFOLOGÍA FLORAL DE ESPECIES FORESTALES DE LA ESPOCH</h1>
+    <p class="hero-sub">Decodificando la arquitectura botánica para el diseño de paisajes y la restauración andina <span class="cite">[cite: 2]</span>.</p>
     <div class="hero-ctas">
       <a href="#especies" class="btn-primary">Explorar Especies →</a>
       <a href="#formula" class="btn-outline">¿Qué es una fórmula floral?</a>
@@ -450,7 +454,6 @@
   </div>
 </section>
 
-<!-- MISION / VISION -->
 <section class="mv-section" id="mision">
   <div class="container">
     <div class="section-label fade-in">Propósito Institucional</div>
@@ -470,56 +473,52 @@
   </div>
 </section>
 
-<!-- FORMULA FLORAL -->
 <section class="formula-section" id="formula">
   <div class="container">
     <div class="section-label fade-in">Herramienta de Lectura Botánica</div>
     <div class="divider fade-in"></div>
-    <h2 class="section-title fade-in">Anatomía de una Fórmula Floral</h2>
-    <p class="section-desc fade-in">Una fórmula floral es el código que permite predecir el comportamiento reproductivo de una planta, sus polinizadores y su hábitat óptimo. Leer esta notación es la clave para entender el ecosistema.</p>
+    <h2 class="section-title fade-in">Anatomía de una Fórmula Floral <span class="cite">[cite: 4]</span></h2>
+    <p class="section-desc fade-in">Una fórmula floral es el código que permite predecir el comportamiento reproductivo de una planta, sus polinizadores y su hábitat óptimo. Leer esta notación es la clave para entender el ecosistema <span class="cite">[cite: 164]</span>.</p>
 
     <div class="formula-explainer fade-in">
       <div>
         <div class="formula-display">
-          ♀ <span class="highlight">↓</span> K<sub style="font-size:.6em">(5)</sub> [C<sub style="font-size:.6em">(5)</sub> A2] G<sub style="font-size:.6em">(2)</sub>
+          ⚥ <span class="highlight">↓</span> K<sub style="font-size:.6em">(5)</sub> [C<sub style="font-size:.6em">(5)</sub> A2] G<sub style="font-size:.6em">(2)</sub> <span class="cite" style="font-size: 0.8rem;">[cite: 7]</span>
         </div>
-        <div style="margin-top:1rem; color:rgba(255,255,255,.5); font-size:.8rem; letter-spacing:.06em; text-transform:uppercase;">Ejemplo: Salvia rosmarinus (Romero)</div>
+        <div style="margin-top:1rem; color:rgba(255,255,255,.7); font-size:.8rem; letter-spacing:.06em; text-transform:uppercase;">Ejemplo: Salvia rosmarinus (Romero) <span class="cite">[cite: 123, 124]</span></div>
       </div>
       <ul class="formula-parts">
-        <li><span class="fp-tag">♀/♂/⚥</span><div><strong>Sexo floral:</strong> Femenina (♀), masculina (♂) o hermafrodita (⚥). Determina el sistema de reproducción de la especie.</div></li>
-        <li><span class="fp-tag">*/ ↓</span><div><strong>Simetría:</strong> Actinomorfa (*) radial o zigomorfa (↓) bilateral. La zigomorfia dirige polinizadores específicos.</div></li>
-        <li><span class="fp-tag">K</span><div><strong>Cáliz (sépalos):</strong> Número de sépalos. Paréntesis indica fusión (gamosépalo). Ej: K(5) = 5 sépalos concrescentes.</div></li>
-        <li><span class="fp-tag">C</span><div><strong>Corola (pétalos):</strong> Número de pétalos. C0 = apétala; C(5) = 5 pétalos fusionados (gamopétala).</div></li>
-        <li><span class="fp-tag">A</span><div><strong>Androceo (estambres):</strong> Número de estambres. A∞ = numerosos; A° = estaminodios abortados.</div></li>
-        <li><span class="fp-tag">G</span><div><strong>Gineceo (carpelos):</strong> Número de carpelos. G con línea debajo = ovario ínfero. Sin línea = ovario súpero.</div></li>
+        <li><span class="fp-tag">⚥</span><div><strong>Sexo floral:</strong> Determina el sistema de reproducción de la especie. En este ejemplo, hermafrodita <span class="cite">[cite: 5]</span>.</div></li>
+        <li><span class="fp-tag">↓</span><div><strong>Simetría:</strong> Zigomorfa <span class="cite">[cite: 6]</span>. La zigomorfia dirige polinizadores específicos <span class="cite">[cite: 125]</span>.</div></li>
+        <li><span class="fp-tag">K</span><div><strong>Cáliz (sépalos):</strong> 5 sépalos concrescentes <span class="cite">[cite: 8]</span>.</div></li>
+        <li><span class="fp-tag">C/A</span><div><strong>Corola y Androceo:</strong> Gamopétala, con reducción a 2 estambres funcionales <span class="cite">[cite: 9]</span>.</div></li>
+        <li><span class="fp-tag">G</span><div><strong>Gineceo:</strong> Ovario súpero, 2 carpelos <span class="cite">[cite: 10]</span>.</div></li>
       </ul>
     </div>
 
-    <!-- Ovario -->
-    <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--verde-oscuro); margin-bottom:1.5rem;" class="fade-in">El Ovario en Perspectiva Espacial</h3>
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--verde-oscuro); margin-bottom:1.5rem;" class="fade-in">El Ovario en Perspectiva Espacial <span class="cite">[cite: 12]</span></h3>
     <div class="ovario-grid fade-in">
       <div class="ovario-card supero">
-        <h3>Ovario Súpero</h3>
-        <div class="ovario-notation">Notación: G1 o G</div>
-        <p>Se ubica por encima del punto de inserción de los sépalos y pétalos. Frecuente en familias como Leguminosas y Rosáceas. Su posición elevada lo protege de los insectos rastreros.</p>
-        <div class="ovario-example">🍑 Ejemplo: <em>Prunus serotina</em> (Capulí)</div>
+        <h3>Ovario Súpero <span class="cite">[cite: 13]</span></h3>
+        <div class="ovario-notation">Notación: G1 o G <span class="cite">[cite: 15]</span></div>
+        <p>Frecuente en familias como Leguminosas y Rosáceas <span class="cite">[cite: 15]</span>.</p>
+        <div class="ovario-example">🍑 Ejemplo: <em>Prunus serotina</em> (Capulí) <span class="cite">[cite: 17]</span></div>
       </div>
       <div class="ovario-card infero">
-        <h3>Ovario Ínfero</h3>
-        <div class="ovario-notation">Notación: G̲</div>
-        <p>Se encuentra por debajo de los verticilos florales, fusionado con el receptáculo. Característico de familias como Myrtaceae y Juglandaceae. Mayor protección mecánica del fruto.</p>
-        <div class="ovario-example">🌳 Ejemplo: <em>Eucalyptus globulus / Juglans neotropica</em></div>
+        <h3>Ovario Ínfero <span class="cite">[cite: 14]</span></h3>
+        <div class="ovario-notation">Notación: G̲ <span class="cite">[cite: 16]</span></div>
+        <p>Característico de familias como Myrtaceae y Juglandaceae <span class="cite">[cite: 16]</span>.</p>
+        <div class="ovario-example">🌳 Ejemplo: <em>Eucalyptus globulus</em> / <em>Juglans neotropica</em> <span class="cite">[cite: 18]</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ESPECIES -->
 <section class="especies-section" id="especies">
   <div class="container">
     <div class="section-label fade-in">Catálogo Botánico</div>
     <div class="divider fade-in"></div>
-    <h2 class="section-title fade-in">Especies del Ecosistema Andino</h2>
+    <h2 class="section-title fade-in">Tesoros Andinos y Maderables de Altura <span class="cite">[cite: 20]</span></h2>
     <p class="section-desc fade-in">Explora las fórmulas florales y características morfológicas de las especies clave para el diseño de paisajes y la restauración ecológica en la región andina.</p>
 
     <div class="especies-tabs fade-in">
@@ -532,223 +531,152 @@
 
     <div class="especies-grid">
 
-      <!-- Cedrela montana -->
       <div class="especie-card visible" data-cat="maderable">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Cedro</h4>
+            <h4>Cedro <span class="cite">[cite: 21]</span></h4>
             <div class="scientific">Cedrela montana</div>
           </div>
           <span class="especie-badge badge-nativo">Nativo</span>
         </div>
-        <div class="formula-chip">♀ * K(5) C(5) A5 G(5)</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Flores funcionalmente masculinas y femeninas en la misma planta. Ovario súpero pentacarpelar. Árbol forestal de 20–40 m. Simetría actinomorfa perfecta.</p>
-        <p class="especie-detail"><strong>Distribución:</strong> Nativo de Ecuador y Sudamérica. Especie de reforestación prioritaria.</p>
+        <div class="formula-chip">* K(5) C(5) A5 G(5) <span class="cite">[cite: 22]</span></div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Flores funcionalmente masculinas y femeninas en la misma planta. Ovario súpero pentacarpelar <span class="cite">[cite: 28]</span>. Árbol forestal (20-40m) <span class="cite">[cite: 26]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">🌲 20–40 m</span>
-          <span class="tag">🪵 Madera fina</span>
-          <span class="tag">🌱 Reforestación</span>
-          <span class="tag">Ecuador/Sudamérica</span>
+          <span class="tag">🌲 20–40 m <span class="cite">[cite: 26]</span></span>
+          <span class="tag">🪵 Madera fina <span class="cite">[cite: 27]</span></span>
+          <span class="tag">🌱 Reforestación <span class="cite">[cite: 27]</span></span>
+          <span class="tag">Ecuador/Sudamérica <span class="cite">[cite: 25]</span></span>
         </div>
       </div>
 
-      <!-- Juglans neotropica -->
       <div class="especie-card visible" data-cat="maderable">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Nogal</h4>
+            <h4>Nogal <span class="cite">[cite: 23]</span></h4>
             <div class="scientific">Juglans neotropica</div>
           </div>
           <span class="especie-badge badge-andino">Andino</span>
         </div>
-        <div class="formula-chip">♀ * K4 C0 G̲(2) / ♂ * K4 C0 A∞</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Monoico con amentos colgantes. Ausencia total de corola (C0) y ovario ínfero. Árbol caducifolio de 30 m. Madera de alta calidad y valor económico.</p>
+        <div class="formula-chip">♀ * K4 C0 G̲(2) / ♂ * K4 C0 A∞ <span class="cite">[cite: 23]</span></div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Monoico con amentos colgantes. Ausencia total de corola (C0) y ovario ínfero <span class="cite">[cite: 32]</span>. Árbol caducifolio (30m) <span class="cite">[cite: 30]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">🌳 30 m</span>
-          <span class="tag">🍃 Caducifolio</span>
-          <span class="tag">🪵 Alta calidad</span>
-          <span class="tag">Nativo andino</span>
+          <span class="tag">🌳 30 m <span class="cite">[cite: 30]</span></span>
+          <span class="tag">🪵 Madera de alta calidad <span class="cite">[cite: 31]</span></span>
+          <span class="tag">Nativo andino <span class="cite">[cite: 29]</span></span>
         </div>
       </div>
 
-      <!-- Prunus serotina -->
       <div class="especie-card visible" data-cat="rosaceae">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Capulí</h4>
+            <h4>Capulí <span class="cite">[cite: 36]</span></h4>
             <div class="scientific">Prunus serotina</div>
           </div>
           <span class="especie-badge badge-nativo">Nativo</span>
         </div>
-        <div class="formula-chip">⚥ * K5 C5 A∞ G1</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Androceo exuberante (A∞) y gineceo monocarpelar (G1) que origina drupas. Comparte la fórmula esencial con toda la familia Rosaceae. Ovario súpero.</p>
+        <div class="formula-chip">♀ * K5 C5 A∞ G1 <span class="cite">[cite: 36]</span></div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Rasgo Compartido: Un androceo exuberante (A∞) y gineceo monocarpelar (G1) que dará origen a drupas <span class="cite">[cite: 35]</span>. Origen: América <span class="cite">[cite: 38]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">🍒 Fruto comestible</span>
-          <span class="tag">🌿 Medicinal</span>
-          <span class="tag">América (Nativo)</span>
+          <span class="tag">🍒 Fruto comestible <span class="cite">[cite: 39]</span></span>
+          <span class="tag">🌿 Medicinal (antitusivo) <span class="cite">[cite: 39]</span></span>
         </div>
-        <div style="margin-top:.6rem"><span class="warning-tag">⚠️ Hojas y semillas tóxicas</span></div>
+        <div style="margin-top:.6rem"><span class="warning-tag">⚠️ Hojas y semillas tóxicas <span class="cite">[cite: 40]</span></span></div>
       </div>
 
-      <!-- Prunus domestica -->
       <div class="especie-card visible" data-cat="rosaceae">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Ciruelo</h4>
+            <h4>Ciruelo <span class="cite">[cite: 37]</span></h4>
             <div class="scientific">Prunus domestica</div>
           </div>
           <span class="especie-badge badge-introducido">Introducido</span>
         </div>
-        <div class="formula-chip">⚥ * K5 C5 A∞ G1</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Idéntica fórmula al capulí —ambas son Prunus— demostrando la conservación morfológica familiar. Originaria de Europa/Asia. Cultivada para alimentación y conservas.</p>
+        <div class="formula-chip">♀ * K5 C5 A∞ G1 <span class="cite">[cite: 37]</span></div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Comparte los rasgos principales del diseño de los frutales (Familia Rosaceae) <span class="cite">[cite: 34]</span>. Origen: Europa/Asia <span class="cite">[cite: 41]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">🥭 Alimentación</span>
-          <span class="tag">🏺 Conservas</span>
-          <span class="tag">Europa/Asia</span>
+          <span class="tag">🥭 Alimentación humana <span class="cite">[cite: 42]</span></span>
+          <span class="tag">🏺 Conservas <span class="cite">[cite: 42]</span></span>
         </div>
       </div>
 
-      <!-- Schinus molle -->
       <div class="especie-card visible" data-cat="ornamental agroforestal">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Molle</h4>
+            <h4>Molle <span class="cite">[cite: 81]</span></h4>
             <div class="scientific">Schinus molle</div>
           </div>
           <span class="especie-badge badge-andino">Andino</span>
         </div>
-        <div class="formula-chip">♀ * K(5) C5 A10° G(3)</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Especie funcionalmente dioica. Flor femenina con androceo abortado (A10°) transformado en 10 estaminodios vestigiales. Ovario que aborta dos lóculos. Disco nectarífero intrastaminal.</p>
+        <div class="formula-chip">Fórmula Femenina: * K(5) C5 A10° G(3) <span class="cite">[cite: 82]</span></div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Especie funcionalmente dioica. La flor femenina presenta un androceo abortado transformado en 10 estaminodios vestigiales (A10°) y un ovario que aborta dos lóculos para ser monospermo. Posee un disco nectarífero intrastaminal <span class="cite">[cite: 83, 84]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">🌬️ Control erosión</span>
-          <span class="tag">🛡️ Plaguicida natural</span>
-          <span class="tag">🌶️ Pimienta rosa</span>
+          <span class="tag">🌬️ Control erosión eólica <span class="cite">[cite: 85]</span></span>
+          <span class="tag">🛡️ Plaguicida natural <span class="cite">[cite: 86]</span></span>
+          <span class="tag">🌶️ "Pimienta rosa" comercial <span class="cite">[cite: 87]</span></span>
         </div>
       </div>
 
-      <!-- Inga edulis -->
       <div class="especie-card visible" data-cat="agroforestal">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Guaba</h4>
+            <h4>Guaba <span class="cite">[cite: 90]</span></h4>
             <div class="scientific">Inga edulis</div>
           </div>
           <span class="especie-badge badge-nativo">Nativo</span>
         </div>
-        <div class="formula-chip">* K(5) C(5) A(∞) G1</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Androceo infinito (A∞) soldado en su base formando un tubo estaminal exerto. Simbiosis radicular con Rhizobium para fijación de nitrógeno. Sombra regulada para café/cacao.</p>
+        <div class="formula-chip">* K(5) C(5) A(∞) G1 <span class="cite">[cite: 92]</span></div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Androceo infinito (A(∞)) soldado en su base formando un tubo estaminal exerto <span class="cite">[cite: 96]</span>. Sombra regulada para café/cacao. Simbiosis radicular (Rhizobium) para fijación de nitrógeno <span class="cite">[cite: 94]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">☀️ Sombra café/cacao</span>
-          <span class="tag">🌿 Fijación N₂</span>
-          <span class="tag">🍫 Agroforestal</span>
+          <span class="tag">☀️ Sombra regulada <span class="cite">[cite: 94]</span></span>
+          <span class="tag">🌿 Fijación Nitrógeno <span class="cite">[cite: 94]</span></span>
         </div>
       </div>
 
-      <!-- Sapium glandulosum -->
       <div class="especie-card visible" data-cat="agroforestal">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Falso Lechero</h4>
-            <div class="scientific">Sapium glandulosum</div>
-          </div>
-          <span class="especie-badge badge-nativo">Nativo</span>
-        </div>
-        <div class="formula-chip">♂ * K2-3 C0 A2-3</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Flores apétalas (C0) agrupadas en espigas. Especie monoica. Rol de rápida restauración ecológica y protección de suelos. Madera liviana.</p>
-        <div class="especie-tags">
-          <span class="tag">🔄 Restauración</span>
-          <span class="tag">🪵 Madera liviana</span>
-          <span class="tag">Protección suelos</span>
-        </div>
-      </div>
-
-      <!-- Eucalyptus globulus -->
-      <div class="especie-card visible" data-cat="maderable ornamental">
-        <div class="especie-header">
-          <div class="especie-nombre">
-            <h4>Eucalipto</h4>
-            <div class="scientific">Eucalyptus globulus</div>
-          </div>
-          <span class="especie-badge badge-introducido">Introducido</span>
-        </div>
-        <div class="formula-chip">♀ * K(4) C(4) A∞ G̲(2-5)</div>
-        <p class="especie-detail"><strong>Modificación clave:</strong> Cáliz y corola fuertemente soldados formando un opérculo protector que cae durante la antesis. Ovario ínfero. Los estambres son el verdadero atractivo visual.</p>
-        <div class="especie-tags">
-          <span class="tag">🪵 Madera</span>
-          <span class="tag">🌿 Aceites esenciales</span>
-          <span class="tag">Opérculo único</span>
-        </div>
-      </div>
-
-      <!-- Buddleja incana -->
-      <div class="especie-card visible" data-cat="ornamental andino">
-        <div class="especie-header">
-          <div class="especie-nombre">
-            <h4>Quishuar</h4>
-            <div class="scientific">Buddleja incana</div>
-          </div>
-          <span class="especie-badge badge-andino">Andino</span>
-        </div>
-        <div class="formula-chip">♀ * K(4) [C(4) A4] G(2)</div>
-        <p class="especie-detail"><strong>Modificación clave:</strong> Árbol andino de alta montaña. Corola tubular unida a 4 estambres isóstonos. Hojas con denso tomento blanquecino para soportar el frío extremo de las cuencas altoandinas.</p>
-        <div class="especie-tags">
-          <span class="tag">🏔️ Alta montaña</span>
-          <span class="tag">🌊 Cuencas andinas</span>
-          <span class="tag">Forestación</span>
-        </div>
-      </div>
-
-      <!-- Caesalpinia spinosa -->
-      <div class="especie-card visible" data-cat="agroforestal">
-        <div class="especie-header">
-          <div class="especie-nombre">
-            <h4>Tara</h4>
+            <h4>Tara <span class="cite">[cite: 58]</span></h4>
             <div class="scientific">Caesalpinia spinosa</div>
           </div>
           <span class="especie-badge badge-andino">Andino</span>
         </div>
-        <div class="formula-chip">⚥ ↓ K5 C5 A10 G̲1</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Simetría zigomorfa (↓) con el sépalo inferior en forma de bote. Glándula nectarífera basal. Arbusto espinoso andino de uso industrial: producción de taninos y curtiembre.</p>
+        <div class="formula-chip">↓ K5 C5 A10 G1 <span class="cite">[cite: 59]</span></div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Simetría zigomorfa (↓) con el sépalo inferior en forma de bote. Glándula nectarífera basal <span class="cite">[cite: 71]</span>. Arbusto espinoso andino <span class="cite">[cite: 64]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">🏭 Taninos</span>
-          <span class="tag">👜 Curtiembre</span>
-          <span class="tag">🌵 Arbusto espinoso</span>
+          <span class="tag">🏭 Uso industrial (taninos) <span class="cite">[cite: 66]</span></span>
+          <span class="tag">👜 Curtiembre <span class="cite">[cite: 66]</span></span>
         </div>
       </div>
 
-      <!-- Bomarea edulis -->
       <div class="especie-card visible" data-cat="ornamental">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Flor de Pacay</h4>
-            <div class="scientific">Bomarea edulis</div>
+            <h4>Flor de San José <span class="cite">[cite: 70]</span></h4>
+            <div class="scientific">Senna lindheimeriana</div>
           </div>
-          <span class="especie-badge badge-andino">Andino</span>
+          <span class="especie-badge badge-nativo">Nativo</span>
         </div>
-        <div class="formula-chip">♀ * K3 C3 A3+3 G(3)</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Enredadera nativa andina. Flores péndulas, tubulares, de colores llamativos, con ovario ínfero tricarpelar. Piezas florales libres. Tipica monocotiledónea con patrón trimero.</p>
+        <div class="formula-chip">↑ K5 C5 A7+3° G1 <span class="cite">[cite: 74]</span></div>
+        <p class="especie-detail"><strong>Morfología clave:</strong> Androceo heteromórfico extremo: 7 estambres funcionales dispares y 3 estaminodios estériles superiores (°) <span class="cite">[cite: 79]</span>. Arbusto xerófito <span class="cite">[cite: 77]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">🌸 Ornamental</span>
-          <span class="tag">🍑 Fruto comestible</span>
-          <span class="tag">Enredadera nativa</span>
+          <span class="tag">🌸 Ornamental <span class="cite">[cite: 78]</span></span>
+          <span class="tag">🌿 Herbolaria (laxante) <span class="cite">[cite: 78]</span></span>
         </div>
       </div>
 
-      <!-- Salvia rosmarinus -->
-      <div class="especie-card visible" data-cat="ornamental agroforestal">
+      <div class="especie-card visible" data-cat="ornamental andino">
         <div class="especie-header">
           <div class="especie-nombre">
-            <h4>Romero</h4>
-            <div class="scientific">Salvia rosmarinus</div>
+            <h4>Quishuar <span class="cite">[cite: 106]</span></h4>
+            <div class="scientific">Buddleja incana</div>
           </div>
-          <span class="especie-badge badge-introducido">Introducido</span>
+          <span class="especie-badge badge-andino">Andino</span>
         </div>
-        <div class="formula-chip">♀ ↓ K(5) [C(5) A2] G(2)</div>
-        <p class="especie-detail"><strong>Morfología clave:</strong> Cáliz gamosépalo bilabiado. Fuerte zigomorfia para dirigir polinizadores específicos. Reducción del androceo a solo 2 estambres funcionales. Usos en agricultura urbana, medicinal y aceites esenciales.</p>
+        <div class="formula-chip">♀ * K(4) [C(4) A4] G̲(2) <span class="cite">[cite: 106]</span></div>
+        <p class="especie-detail"><strong>Modificación clave:</strong> Árbol andino de alta montaña. Corola tubular unida a 4 estambres isóstenos. Hojas con denso tomento blanquecino para soportar el frío <span class="cite">[cite: 114, 115]</span>.</p>
         <div class="especie-tags">
-          <span class="tag">🌿 Medicinal</span>
-          <span class="tag">🧴 Aceites esenciales</span>
-          <span class="tag">🏙️ Agricultura urbana</span>
+          <span class="tag">🏔️ Alta montaña <span class="cite">[cite: 114]</span></span>
+          <span class="tag">🌊 Forestación de cuencas altoandinas <span class="cite">[cite: 116]</span></span>
         </div>
       </div>
 
@@ -756,60 +684,57 @@
   </div>
 </section>
 
-<!-- POLINIZACION -->
 <section class="polin-section" id="polinizacion">
   <div class="container">
     <div class="section-label fade-in">Estrategias Reproductivas</div>
     <div class="divider fade-in"></div>
-    <h2 class="section-title fade-in">Espectro Reproductivo: Anemofilia vs Zoofilia</h2>
-    <p class="section-desc fade-in">La fórmula floral predice directamente quién llevará el polen. Dos estrategias opuestas dominan el paisaje andino, cada una optimizada por millones de años de evolución.</p>
+    <h2 class="section-title fade-in">Espectro Reproductivo: Anemofilia vs. Zoofilia <span class="cite">[cite: 44]</span></h2>
+    <p class="section-desc fade-in">La fórmula floral evidencia las adaptaciones extremas desarrolladas por las plantas para asegurar la polinización de acuerdo a su entorno y vector.</p>
 
     <div class="polin-grid fade-in">
       <div class="polin-card anemo">
-        <h3>Anemofilia — La Reducción Extrema</h3>
-        <div class="polin-subtitle">🌬️ Polinización por Viento</div>
-        <div class="polin-formula">* K(4) C(4) ó 0 · A2 · G(2)</div>
-        <p>El <em>Fraxinus sp.</em> (Fresno) es el modelo de adaptación anemófila. Reducción severa a solo <strong>2 estambres funcionales</strong> y frecuente ausencia total de corola (C0). Sin necesidad de atraer insectos, la planta invierte en producir grandes cantidades de polen liviano que el viento transporta. También el Nogal (<em>Juglans neotropica</em>) con sus amentos colgantes sigue esta estrategia.</p>
+        <h3>Fresno (Fraxinus sp.) - La Reducción Extrema <span class="cite">[cite: 45]</span></h3>
+        <div class="polin-subtitle">🌬️ Adaptación anemófila <span class="cite">[cite: 49]</span></div>
+        <div class="polin-formula">* K(4) C(4) ó 0 A2 G(2) <span class="cite">[cite: 45]</span></div>
+        <p>Reducción severa a solo 2 estambres funcionales y frecuente ausencia total de corola (C0) <span class="cite">[cite: 49]</span>.</p>
       </div>
       <div class="polin-card zoo">
-        <h3>Zoofilia — El Reclamo Visual</h3>
-        <div class="polin-subtitle">🐝 Polinización por Animales</div>
-        <div class="polin-formula">* K(5) C5 A∞ G(3-4)</div>
-        <p>El <em>Callistemon citrinus</em> (Cepillo Rojo) encarna la especialización zoófila. El perianto es vestigial; el verdadero reclamo estético son los estambres (A∞) rojos y exertos que atraen colibríes y abejas. El ovario es ínfero (G(3-4)). La Guaba (<em>Inga edulis</em>) también usa esta estrategia con su tubo estaminal exerto.</p>
+        <h3>Cepillo Rojo (Callistemon citrinus) - El Reclamo Visual <span class="cite">[cite: 46]</span></h3>
+        <div class="polin-subtitle">🐝 Especialización para colibríes y abejas <span class="cite">[cite: 53]</span></div>
+        <div class="polin-formula">* K(5) C5 A∞ G(3-4) <span class="cite">[cite: 47]</span></div>
+        <p>El perianto es vestigial; el verdadero reclamo estético son los estambres (A∞) rojos y exertos. Ovario ínfero <span class="cite">[cite: 53]</span>.</p>
       </div>
     </div>
 
     <div style="margin-top:2rem; padding:1.5rem 2rem; background:var(--blanco-suave); border-radius:12px; border:1px solid var(--verde-suave);" class="fade-in">
-      <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--verde-oscuro); margin-bottom:.5rem;">Conclusión Evolutiva</div>
-      <p style="font-size:.9rem; line-height:1.75; color:var(--gris-texto);">La evolución floral andina empuja hacia la <strong>fusión de piezas (gamopetalia)</strong> y la <strong>asimetría zigomorfa</strong> para maximizar el éxito con polinizadores específicos en terrenos difíciles. Las flores con perianto reducido o ausente son anemófilas; las de perianto colorido y estambres exertos son zoófilas.</p>
+      <div style="font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--verde-oscuro); margin-bottom:.5rem;">Key Takeaway Callout <span class="cite">[cite: 142]</span></div>
+      <p style="font-size:.9rem; line-height:1.75; color:var(--gris-texto);">Conclusión: La evolución floral andina empuja hacia la fusión de piezas (gamopetalia) y la asimetría para maximizar el éxito con polinizadores específicos en terrenos difíciles <span class="cite">[cite: 143]</span>.</p>
     </div>
   </div>
 </section>
 
-<!-- MATRIZ ANDINA -->
 <section class="matriz-section" id="matriz">
   <div class="container">
     <div class="section-label fade-in">Guía de Selección</div>
     <div class="divider fade-in"></div>
-    <h2 class="section-title fade-in">Matriz de Aplicación en el Paisaje Andino</h2>
-    <p class="section-desc fade-in">¿Qué especie necesitas para tu proyecto? Esta matriz cruza las especies con sus usos ecológicos y productivos para orientar la toma de decisiones en restauración y diseño forestal.</p>
+    <h2 class="section-title fade-in">Matriz de Aplicación en el Paisaje Andino <span class="cite">[cite: 150]</span></h2>
 
     <div class="fade-in" style="overflow-x:auto">
     <table class="matrix-table">
       <thead>
         <tr>
-          <th>Especie</th>
-          <th>Maderable</th>
-          <th>Restauración / Suelos</th>
-          <th>Fijación N₂</th>
-          <th>Alimenticio</th>
-          <th>Medicinal</th>
-          <th>Ornamental Urbano</th>
+          <th>Especie <span class="cite">[cite: 145]</span></th>
+          <th>Maderable <span class="cite">[cite: 151]</span></th>
+          <th>Restauración/Suelos <span class="cite">[cite: 152]</span></th>
+          <th>Fijación Nitrógeno <span class="cite">[cite: 153]</span></th>
+          <th>Alimenticio <span class="cite">[cite: 154]</span></th>
+          <th>Medicinal <span class="cite">[cite: 155]</span></th>
+          <th>Ornamental Urbano <span class="cite">[cite: 158]</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Schinus molle</td>
+          <td>Schinus molle <span class="cite">[cite: 146]</span></td>
           <td><span class="dot-no">—</span></td>
           <td><span class="dot-yes">●</span></td>
           <td><span class="dot-no">—</span></td>
@@ -818,7 +743,7 @@
           <td><span class="dot-yes">●</span></td>
         </tr>
         <tr>
-          <td>Inga edulis</td>
+          <td>Inga edulis <span class="cite">[cite: 147]</span></td>
           <td><span class="dot-no">—</span></td>
           <td><span class="dot-yes">●</span></td>
           <td><span class="dot-yes">●</span></td>
@@ -827,16 +752,7 @@
           <td><span class="dot-no">—</span></td>
         </tr>
         <tr>
-          <td>Caesalpinia spinosa</td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-yes">●</span></td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-yes">●</span></td>
-          <td><span class="dot-yes">●</span></td>
-        </tr>
-        <tr>
-          <td>Cedrela montana</td>
+          <td>Cedrela montana <span class="cite">[cite: 148]</span></td>
           <td><span class="dot-yes">●</span></td>
           <td><span class="dot-no">—</span></td>
           <td><span class="dot-no">—</span></td>
@@ -845,80 +761,56 @@
           <td><span class="dot-no">—</span></td>
         </tr>
         <tr>
-          <td>Fraxinus sp.</td>
+          <td>Fraxinus sp. <span class="cite">[cite: 149]</span></td>
           <td><span class="dot-yes">●</span></td>
           <td><span class="dot-no">—</span></td>
           <td><span class="dot-no">—</span></td>
           <td><span class="dot-no">—</span></td>
           <td><span class="dot-no">—</span></td>
-          <td><span class="dot-yes">●</span></td>
-        </tr>
-        <tr>
-          <td>Buddleja incana</td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-yes">●</span></td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-yes">●</span></td>
-        </tr>
-        <tr>
-          <td>Prunus serotina</td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-no">—</span></td>
-          <td><span class="dot-yes">●</span></td>
-          <td><span class="dot-yes">●</span></td>
           <td><span class="dot-yes">●</span></td>
         </tr>
       </tbody>
     </table>
     </div>
     <div class="matrix-note fade-in">
-      <strong>Síntesis Analítica:</strong> Especies como <em>Schinus molle</em> y <em>Caesalpinia spinosa</em> representan "navajas suizas" ecológicas, justificando su presencia dominante en la planificación territorial andina. La fijación de nitrógeno de <em>Inga edulis</em> la convierte en infraestructura biológica esencial para sistemas agroforestales.
+      <strong>Síntesis Analítica <span class="cite">[cite: 156]</span>:</strong> Especies como el <em>Schinus molle</em> y <em>Caesalpinia spinosa</em> representan 'navajas suizas' ecológicas, justificando su presencia dominante en la planificación territorial andina <span class="cite">[cite: 157]</span>.
     </div>
   </div>
 </section>
 
-<!-- FLUJO CONCEPTUAL -->
 <section class="flujo-section" id="flujo">
   <div class="container">
     <div class="section-label fade-in">Marco Conceptual</div>
     <div class="divider fade-in"></div>
-    <h2 class="section-title fade-in">De la Microarquitectura al Ecosistema</h2>
-    <p class="section-desc fade-in">El poder de la morfología floral aplicada reside en el salto de escala: de un símbolo en una fórmula a decisiones de diseño territorial.</p>
+    <h2 class="section-title fade-in">De la Microarquitectura al Ecosistema <span class="cite">[cite: 160]</span></h2>
 
     <div class="flujo-steps fade-in">
       <div class="flujo-step">
         <div class="flujo-num">1</div>
-        <div class="flujo-formula-sample">⚥ * K(5) C(5) A∞ G1</div>
-        <h4>La Fórmula (El Código)</h4>
-        <p>Leer la fórmula floral permite predecir el comportamiento reproductivo y los requerimientos del polinizador. Es el ADN visible de la flor.</p>
+        <h4>La Fórmula (El Código) <span class="cite">[cite: 162]</span></h4>
+        <p>Leer la fórmula floral permite predecir el comportamiento reproductivo y los requerimientos del polinizador <span class="cite">[cite: 164]</span>.</p>
       </div>
       <div class="flujo-step">
         <div class="flujo-num">2</div>
-        <div style="font-size:2.5rem;margin-bottom:.8rem">🌸</div>
-        <h4>La Morfología (La Máquina)</h4>
-        <p>La posición del ovario (súpero vs. ínfero) y la reducción anatómica (anemofilia) dictan el tipo de fruto y el hábitat óptimo de la especie.</p>
+        <h4>La Morfología (La Máquina) <span class="cite">[cite: 165]</span></h4>
+        <p>La posición del ovario (súpero vs. ínfero) y la reducción anatómica (anemofilia) dictan el tipo de fruto y el hábitat óptimo <span class="cite">[cite: 170]</span>.</p>
       </div>
       <div class="flujo-step">
         <div class="flujo-num">3</div>
-        <div style="font-size:2.5rem;margin-bottom:.8rem">🏔️</div>
-        <h4>El Paisaje (La Aplicación)</h4>
-        <p>Seleccionar especies basándose en su arquitectura reproductiva garantiza una restauración ecológica resiliente y sistemas forestales económicamente viables.</p>
+        <h4>El Paisaje (La Aplicación) <span class="cite">[cite: 161]</span></h4>
+        <p>Seleccionar especies basándose en su arquitectura reproductiva garantiza una restauración ecológica resiliente y sistemas forestales económicamente viables <span class="cite">[cite: 171]</span>.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span class="footer-leaf">🌿</span>
-  <div class="footer-logo">Manual de Morfología Floral Aplicada</div>
+  <div class="footer-logo">Morfología Floral ESPOCH</div>
   <p>Escuela Superior Politécnica de Chimborazo · Facultad de Recursos Naturales<br>
   Ingeniería Forestal<br>
   <br>
-  <em style="font-size:.78rem; opacity:.6">Recurso didáctico digital para la identificación botánica en campo y la restauración andina</em>
+  <em style="font-size:.78rem; opacity:.7">Recurso didáctico digital derivado de "Decodificando la arquitectura botánica para el diseño de paisajes y la restauración andina" <span class="cite">[cite: 2]</span>.</em>
   </p>
 </footer>
 
