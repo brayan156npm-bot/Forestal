@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 1; i <= totalPages; i++) {
         // Format number to be two digits e.g. 01, 02
         const pageNum = i.toString().padStart(2, '0');
-        const imgSrc = `pdf_pages/page_${pageNum}.png`;
+        const imgSrc = `page_${pageNum}.png`;
 
         const pageItem = document.createElement('div');
         pageItem.className = `page-item fade-in`;
