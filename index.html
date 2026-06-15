@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Book Digital · ESPOCH</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <span class="nav-logo-leaf">🌿</span>
+      E-Book Forestal
+    </div>
+    <ul class="nav-links">
+      <li><a href="#mision">Misión & Visión</a></li>
+      <li><a href="#manual">Manual Interactivo</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid-bg"></div>
+    <svg class="hero-mandala" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="white" stroke-width="0.5" />
+      <circle cx="100" cy="100" r="70" fill="none" stroke="white" stroke-width="0.5" />
+      <circle cx="100" cy="100" r="50" fill="none" stroke="white" stroke-width="0.5" />
+      <circle cx="100" cy="100" r="30" fill="none" stroke="white" stroke-width="0.5" />
+      <line x1="100" y1="10" x2="100" y2="190" stroke="white" stroke-width="0.3" />
+      <line x1="10" y1="100" x2="190" y2="100" stroke="white" stroke-width="0.3" />
+      <line x1="27" y1="27" x2="173" y2="173" stroke="white" stroke-width="0.3" />
+      <line x1="173" y1="27" x2="27" y2="173" stroke="white" stroke-width="0.3" />
+    </svg>
+    <div class="hero-content">
+      <span class="hero-eyebrow">ESPOCH · Facultad de Recursos Naturales</span>
+      <h1>Desarrollo de un <span>E-Book</span><br>Digital Técnico</h1>
+      <p class="hero-sub">Sobre morfología floral de especies forestales de la ESPOCH. Un recurso didáctico para la
+        comunidad académica.</p>
+      <div class="hero-ctas">
+        <a href="#manual" class="btn-primary">Ver el Manual →</a>
+        <a href="#mision" class="btn-outline">Conoce nuestro propósito</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Desplazar</span>
+      <span class="hero-scroll-arrow">↓</span>
+    </div>
+  </section>
+
+  <!-- MISION / VISION -->
+  <section class="mv-section" id="mision">
+    <div class="container">
+      <div class="section-label fade-in">Propósito Institucional</div>
+      <div class="divider fade-in"></div>
+      <div class="mv-grid fade-in">
+        <div class="mv-card">
+          <div class="mv-icon">🎯</div>
+          <h3>Misión</h3>
+          <p>“Proveer a los estudiantes de Ingeniería Forestal y a la comunidad académica de la ESPOCH una herramienta
+            digital técnica y visualmente innovadora que facilite el aprendizaje de la morfología floral. Nuestra misión
+            es sistematizar el conocimiento científico de las especies del Museo Vivo del Árbol, transformando datos
+            complejos en un recurso didáctico de fácil acceso que fortalezca la identificación botánica en campo y el
+            valor de nuestra biodiversidad universitaria”.</p>
+        </div>
+        <div class="mv-card">
+          <div class="mv-icon">🌄</div>
+          <h3>Visión</h3>
+          <p>“Consolidarse como el recurso digital de referencia líder en el estudio de la arquitectura floral y
+            dendrología dentro de la Facultad de Recursos Naturales. Aspiramos a ser un modelo de innovación tecnológica
+            aplicada a la botánica, que impulse la formación de profesionales forestales de excelencia, capaces de
+            comprender y conservar la riqueza natural de la región andina mediante el uso de herramientas de
+            vanguardia”.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANUAL PDF PAGES -->
+  <section class="book-section" id="manual">
+    <div class="container">
+      <div class="section-label fade-in">Recurso Didáctico</div>
+      <div class="divider fade-in"></div>
+      <h2 class="section-title fade-in">Manual de Morfología Floral Aplicada</h2>
+      <p class="section-desc fade-in">Explora el contenido completo del e-book digital.</p>
+
+      <div class="pages-grid" id="pages-container">
+        <!-- Images will be injected here by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-leaf">🌿</span>
+    <div class="footer-logo">Desarrollo de E-Book Digital Técnico</div>
+    <p>Escuela Superior Politécnica de Chimborazo · Facultad de Recursos Naturales<br>
+      Ingeniería Forestal<br>
+    </p>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-img" id="lightbox-image" src="" alt="Zoomed Page">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
