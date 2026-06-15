@@ -138,6 +138,52 @@ section { padding: 5rem 2rem; }
   border-radius: 2px; margin-bottom: 1.5rem;
 }
 
+/* ── DIGITAL BLUEPRINTS ── */
+.blueprints-section { background: var(--blanco-suave); }
+.blueprints-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ── OBJETIVOS ── */
+.objetivos-section { background: var(--blanco); }
+.objetivo-general {
+  background: linear-gradient(135deg, #f0faf4 0%, #e8f5ed 100%);
+  border: 1px solid var(--verde-suave);
+  border-radius: 12px; padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+.objetivo-general h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; color: var(--verde-medio);
+  margin-bottom: .8rem; font-weight: 700;
+}
+.objetivo-general p { font-size: 1rem; line-height: 1.8; color: var(--gris-texto); }
+.obj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.obj-card {
+  background: var(--blanco-suave);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 12px; padding: 2rem;
+  transition: transform .25s, box-shadow .25s;
+}
+.obj-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(26,74,46,.06); }
+.obj-num {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--verde-hoja); color: var(--blanco);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;
+  margin-bottom: 1rem;
+}
+.obj-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; color: var(--verde-oscuro);
+  margin-bottom: .6rem; font-weight: 700;
+}
+.obj-card p { font-size: .9rem; line-height: 1.7; color: var(--gris-texto); }
+
 /* ── MISION/VISION ── */
 .mv-section { background: var(--blanco-suave); }
 .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -165,8 +211,10 @@ section { padding: 5rem 2rem; }
 .book-section { background: var(--blanco); }
 .pages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .page-item {
@@ -276,7 +324,7 @@ footer .footer-leaf { font-size: 1.8rem; margin-bottom: .8rem; display: block; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  .mv-grid, .pages-grid { grid-template-columns: 1fr; }
+  .mv-grid, .pages-grid, .obj-grid, .blueprints-grid { grid-template-columns: 1fr; }
   nav { padding: 0 1rem; }
   .nav-links { display: none; }
 }
